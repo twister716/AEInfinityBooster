@@ -128,7 +128,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.changelogType = 'markdown'
     mainFile.gameVersions = ['1.20.6']
     mainFile.addModLoader("neoforge")
-    mainFile.displayName = "AEInfinityBooster v${version}"
+    mainFile.displayName = "AEInfinityBooster ${version}"
 
 
 }
@@ -136,7 +136,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 modrinth {
     token = env.MODRINTH_API_KEY
     projectId = 'VQhDBNs8'
-    versionName = "AEInfinityBooster v$version"
+    versionName = "AEInfinityBooster $version"
     changelog = 'A changelog can be found at https://github.com/Hexeption/AEInfinityBooster'
     uploadFile = jar
     gameVersions = ["1.20.6"]
