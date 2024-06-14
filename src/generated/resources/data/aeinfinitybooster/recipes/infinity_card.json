@@ -21,7 +21,7 @@
     "NNN"
   ],
   "result": {
-    "item": "aeinfinitybooster:infinity_card"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "aeinfinitybooster:infinity_card"
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "aeinfinitybooster:infinity_card"
-            ]
+            "items": "aeinfinitybooster:infinity_card"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_item",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_item"
     ]
   ],
   "rewards": {
     "recipes": [
       "aeinfinitybooster:dimension_card"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -16,7 +16,7 @@ import uk.co.hexeption.aeinfinitybooster.setup.ModItems;
  * @author Hexeption admin@hexeption.co.uk
  * @since 22/12/2021 - 10:35 am
  */
-@Mixin(value = WirelessAccessPointMenu.class)
+@Mixin(value = WirelessAccessPointMenu.class, remap = false)
 public abstract class MixinWirelessMenu {
 
     @Shadow

@@ -4,7 +4,9 @@ import appeng.api.implementations.blockentities.IWirelessAccessPoint;
 import appeng.api.implementations.menuobjects.ItemMenuHost;
 import appeng.blockentity.networking.WirelessAccessPointBlockEntity;
 import appeng.helpers.WirelessTerminalMenuHost;
+import appeng.menu.locator.ItemMenuHostLocator;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,17 +23,18 @@ import uk.co.hexeption.aeinfinitybooster.setup.ModItems;
 @Mixin(value = WirelessTerminalMenuHost.class, remap = false)
 public class MixinWirelessTerminalMenuHost extends ItemMenuHost {
 
-    public MixinWirelessTerminalMenuHost(Player player, int slot, ItemStack itemStack) {
-        super(player, slot, itemStack);
+    public MixinWirelessTerminalMenuHost(Item item, Player player, ItemMenuHostLocator locator) {
+
+        super(item, player, locator);
     }
 
-    @Inject(method = "getWapSqDistance", at = @At("HEAD"), cancellable = true)
-    private void testWap(IWirelessAccessPoint wirelessAccessPoint, CallbackInfoReturnable<Double> cir) {
+    @Inject(method = "getAccessPointSignal", at = @At("HEAD"), cancellable = true)
+    private void testWap(IWirelessAccessPoint wirelessAccessPoint, CallbackInfoReturnable<WirelessTerminalMenuHost.AccessPointSignal> cir) {
 
         wirelessAccessPoint.getGrid().getMachines(WirelessAccessPointBlockEntity.class).forEach(wirelessBlockEntity -> {
 
             if (wirelessBlockEntity.getInternalInventory().getStackInSlot(0).is(ModItems.DIMENSION_CARD.get())) {
-                cir.setReturnValue(1024.0D);
+                cir.setReturnValue(new WirelessTerminalMenuHost.AccessPointSignal(1024.0D, 1024.0D));
             }
 
             if (!this.getPlayer().level().dimension().location().toString().equals(wirelessAccessPoint.getLocation().getLevel().dimension().location().toString())) {
@@ -39,7 +42,7 @@ public class MixinWirelessTerminalMenuHost extends ItemMenuHost {
             }
 
             if (wirelessBlockEntity.getInternalInventory().getStackInSlot(0).is(ModItems.INFINITY_CARD.get())) {
-                cir.setReturnValue(256.0D);
+                cir.setReturnValue(new WirelessTerminalMenuHost.AccessPointSignal(256.0D, 256.0D));
             }
         });
     }

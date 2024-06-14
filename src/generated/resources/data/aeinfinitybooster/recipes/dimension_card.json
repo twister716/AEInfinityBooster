@@ -18,7 +18,7 @@
     "RNR"
   ],
   "result": {
-    "item": "aeinfinitybooster:dimension_card"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "aeinfinitybooster:dimension_card"
+  }
 }
