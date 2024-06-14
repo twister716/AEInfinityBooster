@@ -8,7 +8,8 @@
     "MixinWirelessTerminalMenuHost",
     "MixinWirelessBlockEntity",
     "MixinRestrictedInputSlot",
-    "MixinWirelessMenu"
+    "MixinWirelessMenu",
+    "MixinWirelessAccessPointScreen"
   ],
   "client": [
   ],
