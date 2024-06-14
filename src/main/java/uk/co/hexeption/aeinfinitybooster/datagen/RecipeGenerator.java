@@ -23,8 +23,9 @@ import java.util.concurrent.CompletableFuture;
  */
 public class RecipeGenerator extends RecipeProvider {
 
-    public RecipeGenerator(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pRegistries) {
-        super(pOutput, pRegistries);
+    public RecipeGenerator(PackOutput pOutput) {
+
+        super(pOutput);
     }
 
     @Override
