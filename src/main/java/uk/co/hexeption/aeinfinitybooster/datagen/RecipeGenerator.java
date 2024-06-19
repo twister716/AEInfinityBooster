@@ -36,14 +36,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('S', Items.NETHER_STAR)
                 .define('N', Items.NETHERITE_INGOT)
                 .unlockedBy("has_item", has(Items.NETHERITE_INGOT))
-                .save(pRecipeOutput, new ResourceLocation(AEInfinityBooster.MODID, "infinity_card"));
+                .save(pRecipeOutput, ResourceLocation.fromNamespaceAndPath(AEInfinityBooster.MODID, "infinity_card"));
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIMENSION_CARD.get())
                 .pattern("RNR").pattern("NEN").pattern("RNR")
                 .define('R', ModItems.INFINITY_CARD.get())
                 .define('E', Items.ENDER_EYE)
                 .define('N', Items.NETHER_STAR)
                 .unlockedBy("has_item", has(ModItems.INFINITY_CARD.get()))
-                .save(pRecipeOutput, new ResourceLocation(AEInfinityBooster.MODID, "dimension_card"));
+                .save(pRecipeOutput, ResourceLocation.fromNamespaceAndPath(AEInfinityBooster.MODID, "dimension_card"));
     }
 
 }
